@@ -1,4 +1,4 @@
-const mongoose = require("./connect");
+const mongoose = require("../connect");
 var USERSCHEMA = {
 name: String,
 email: String,

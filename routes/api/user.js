@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var USER = require("../database/users");
-var valid = require('../utils/valid')
+var USER = require("../../database/collections/users");
+var valid = require('../../utils/valid')
 
 router.post('/user', async(req, res) => {
 var params = req.body;

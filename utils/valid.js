@@ -1,3 +1,4 @@
+//validation email
 var valid = {
     checkEmail: function(email) {       //example
         var exp = /^\w{1,}@\w{1,}[.]\w{2,3}$/g
@@ -16,6 +17,7 @@ var valid = {
         No espacios en blanco
         Al menos 1 caracter especial
 */
+//validation password
     checkPassword: function(password) {       //example
       var  exp =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,15}/;
       if (password.match(exp) == null) {
@@ -33,4 +35,5 @@ var valid = {
         return true;
     },
 };
+
 module.exports = valid;

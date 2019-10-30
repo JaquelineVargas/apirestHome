@@ -10,7 +10,7 @@ var valid = require('../../utils/valid')
 //login
 router.post("/login", async(req, res,next) => {
   var email= req.body.email;
-  var password = crypto.createHash("md5").update(req.body.password).digest("hex");
+  var password = req.body.password; //crypto.createHash("md5").update(req.body.password).digest("hex");
   var result = USER.findOne({email: email,password: password}).exec((err, doc) => {
     if (err) {
       res.status(200).json({
@@ -27,7 +27,7 @@ router.post("/login", async(req, res,next) => {
           });
       })
     } else {
-      res.status(200).json({
+      res.status(300).json({
         msn : "El usuario no existe en la base de datos"
       });
     }
@@ -84,7 +84,7 @@ if(!valid.checkPassword(params.password))
 
         }
 //crypto password
-params["password"] = crypto.createHash("md5").update(params.password).digest("hex");
+//params["password"] = crypto.createHash("md5").update(params.password).digest("hex");
 var users = new USER(params);
 var result = await users.save();
 res.status(200).json(result);
